@@ -1,5 +1,6 @@
-package crearXML
+package crearXMLObjetos
 
+import crearXMLObjetosyLibreria.XML
 import java.io.File
 import java.io.FileNotFoundException
 
