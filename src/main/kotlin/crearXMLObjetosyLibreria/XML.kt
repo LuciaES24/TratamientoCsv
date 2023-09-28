@@ -4,7 +4,7 @@ class XML {
     //Variable para ir guardando todas las líneas del xml para luego poder escribirlas en un archivo
     var lineas_xml = ""
 
-    //Añade la línea de cabecera que tienen todos los xml
+    //Añade la línea de formato que tienen todos los xml
     fun anadirCabecera(){
         lineas_xml += "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
     }
