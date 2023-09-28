@@ -1,5 +1,7 @@
 package filtrarCsv_POO
 
+import java.io.FileNotFoundException
+
 fun main(args: Array<String>){
     try {
         if (args.size>2){
@@ -55,5 +57,7 @@ fun main(args: Array<String>){
         println("No se han dado argumentos")
     }catch (e: ArrayIndexOutOfBoundsException){
         println("Argumentos inválidos")
+    }catch (e: FileNotFoundException){
+        println("El archivo no se ha encontrado o está vacío")
     }
 }
