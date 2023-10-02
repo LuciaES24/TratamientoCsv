@@ -1,6 +1,6 @@
 package crearXMLObjetos
 
-import crearXMLObjetosyLibreria.XML
+import crearXMLObjetosyLibreriaGitHub.XML
 import java.io.File
 import java.io.FileNotFoundException
 

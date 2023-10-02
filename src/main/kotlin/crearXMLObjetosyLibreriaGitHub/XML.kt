@@ -1,4 +1,4 @@
-package crearXMLObjetosyLibreria
+package crearXMLObjetosyLibreriaGitHub
 
 class XML {
     //Variable para ir guardando todas las líneas del xml para luego poder escribirlas en un archivo
