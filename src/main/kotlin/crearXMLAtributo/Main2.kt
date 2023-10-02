@@ -1,4 +1,4 @@
-package crearXMLLibreriaJava
+package crearXMLAtributo
 import org.w3c.dom.Document
 import java.io.File
 import java.io.FileNotFoundException
@@ -21,7 +21,7 @@ fun main(args: Array<String>) {
             val tiempoInicio = System.currentTimeMillis()
 
             //Guardamos la primera línea en la que estarán los nombres de los elementos
-            val entities = lines[0].split(",")
+            val entities = lines[0].split(",").toList()
 
             // Crear un nuevo documento XML
             val xml = crearDocumentoXML()
@@ -35,6 +35,7 @@ fun main(args: Array<String>) {
                 //Añadimos un elemento por cada línea del csv
                 val elementoHijo = xml.createElement("REGISTRO")
                 rootElement.appendChild(elementoHijo)
+                elementoHijo.setAttribute()
                 //Hacemos un split para separar por campos de informacion
                 var actualLine = lines[i].split(",")
                 //Recorremos los campos y añadimos el elemento hijo junto a la información que le corresponde
