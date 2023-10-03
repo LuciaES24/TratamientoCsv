@@ -21,7 +21,7 @@ fun main(args: Array<String>) {
             val tiempoInicio = System.currentTimeMillis()
 
             //Guardamos la primera línea en la que estarán los nombres de los elementos
-            val entities = lines[0].split(",").toList()
+            val entities = lines[0].split(",")
 
             // Crear un nuevo documento XML
             val xml = crearDocumentoXML()
@@ -35,19 +35,24 @@ fun main(args: Array<String>) {
                 //Añadimos un elemento por cada línea del csv
                 val elementoHijo = xml.createElement("REGISTRO")
                 rootElement.appendChild(elementoHijo)
-                elementoHijo.setAttribute()
                 //Hacemos un split para separar por campos de informacion
                 var actualLine = lines[i].split(",")
                 //Recorremos los campos y añadimos el elemento hijo junto a la información que le corresponde
                 for (x in 0..actualLine.size-1){
-                    val elementoHijo2 = xml.createElement(entities[x])
-                    elementoHijo2.textContent = actualLine[x]
-                    elementoHijo.appendChild(elementoHijo2)
+                    if (x == 0){
+                        //El primer elemento de la línea será el contenido del atributo que hemos guardado en este caso
+                        elementoHijo.setAttribute(entities[0],actualLine[0])
+                    }else{
+                        //El resto serán etiquetas hijas
+                        val elementoHijo2 = xml.createElement(entities[x])
+                        elementoHijo2.textContent = actualLine[x]
+                        elementoHijo.appendChild(elementoHijo2)
+                    }
                 }
             }
 
             // Guardar el documento XML en un archivo
-            guardarDocumentoXML(xml, "itinerarios.xml")
+            guardarDocumentoXML(xml, "itinerariosAtributo.xml")
 
             val tiempoFin = System.currentTimeMillis()
             val tiempoTotal = tiempoFin-tiempoInicio
