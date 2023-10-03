@@ -30,24 +30,23 @@ fun main(args: Array<String>) {
             val rootElement = xml.createElement("ARCHIVO")
             xml.appendChild(rootElement)
 
+            //Creamos un contador para que sea el identficador del atributo
+            var contador = 0
+
             //Vamos recorriendo las líneas del archivo csv que hemos leido
             for (i in 1..lines.size-1) {
                 //Añadimos un elemento por cada línea del csv
                 val elementoHijo = xml.createElement("REGISTRO")
                 rootElement.appendChild(elementoHijo)
+                contador++
+                elementoHijo.setAttribute("Identificador",contador.toString())
                 //Hacemos un split para separar por campos de informacion
                 var actualLine = lines[i].split(",")
                 //Recorremos los campos y añadimos el elemento hijo junto a la información que le corresponde
                 for (x in 0..actualLine.size-1){
-                    if (x == 0){
-                        //El primer elemento de la línea será el contenido del atributo que hemos guardado en este caso
-                        elementoHijo.setAttribute(entities[0],actualLine[0])
-                    }else{
-                        //El resto serán etiquetas hijas
-                        val elementoHijo2 = xml.createElement(entities[x])
-                        elementoHijo2.textContent = actualLine[x]
-                        elementoHijo.appendChild(elementoHijo2)
-                    }
+                    val elementoHijo2 = xml.createElement(entities[x])
+                    elementoHijo2.textContent = actualLine[x]
+                    elementoHijo.appendChild(elementoHijo2)
                 }
             }
 
